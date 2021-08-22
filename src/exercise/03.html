@@ -12,10 +12,12 @@
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
     // 🐨 re-implement this using JSX!
-    const element = React.createElement('div', {
+
+    const props = {
       className: 'container',
       children: 'Hello World',
-    })
+    }
+    const element = React.createElement('div', {...props})
 
     const jsxElement = (
       <div className={element.props.className}>{element.props.children}</div>
