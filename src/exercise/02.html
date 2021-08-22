@@ -1,16 +1,16 @@
 <!-- Intro to raw React APIs -->
 <!-- http://localhost:3000/isolated/exercise/02.html -->
 
-<body>
-  <div id="root"></div>
+<!-- <body> -->
+<!-- <div id="root"></div> -->
 
-  <!-- 🐨 add React and ReactDOM on the page.
+<!-- 🐨 add React and ReactDOM on the page.
        💰 Here are script tags that'll do the job:
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   -->
 
-  <script type="module">
+<!-- <script type="module">
     const rootElement = document.getElementById('root')
 
     // You're going to re-implement this code using React!
@@ -25,5 +25,20 @@
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
-  </script>
-</body>
+  </script> -->
+<!-- </body> -->
+
+<html>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script type="module">
+      const elementProps = {
+        children: 'Hello World',
+      }
+      const reactEle = React.createElement('div', elementProps)
+      ReactDOM.render(reactEle, document.getElementById('root'))
+    </script>
+  </body>
+</html>
