@@ -37,6 +37,9 @@ const largeBox = (
   </div>
 )
 
+function Box() {
+  return <div></div>
+}
 function App() {
   return (
     <div>
