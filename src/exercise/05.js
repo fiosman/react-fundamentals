@@ -37,8 +37,8 @@ const largeBox = (
   </div>
 )
 
-function Box() {
-  return <div></div>
+function Box(props) {
+  return <div className={props.className} style={props.style} />
 }
 function App() {
   return (
