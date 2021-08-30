@@ -21,9 +21,9 @@ function UsernameForm({onSubmitUsername}) {
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
   function handleSubmit(e) {
-    e.preventDefault()
-    const usernameInput = e.target.elements[0].value
-    onSubmitUsername(usernameInput)
+    // e.preventDefault()
+    // const usernameInput = e.target.elements[0].value
+    // onSubmitUsername(usernameInput)
   }
 
   return (
