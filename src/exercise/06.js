@@ -2,8 +2,10 @@
 // http://localhost:3000/isolated/exercise/06.js
 
 import * as React from 'react'
+import {useRef} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
+  const userInput = useRef('')
   // 🐨 add a submit event handler here (`handleSubmit`).
   // 💰 Make sure to accept the `event` as an argument and call
   // `event.preventDefault()` to prevent the default behavior of form submit
@@ -21,16 +23,16 @@ function UsernameForm({onSubmitUsername}) {
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
   function handleSubmit(e) {
-    // e.preventDefault()
-    // const usernameInput = e.target.elements[0].value
-    // onSubmitUsername(usernameInput)
+    e.preventDefault()
+    const usernameInput = userInput.current.value
+    onSubmitUsername(usernameInput)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="usernameInput">Username:</label>
-        <input type="text" id="usernameInput" />
+        <input type="text" id="usernameInput" ref={userInput} />
       </div>
       <button type="submit">Submit</button>
     </form>
