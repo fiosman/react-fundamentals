@@ -23,6 +23,10 @@ function UsernameForm({onSubmitUsername}) {
   // 🐨 make sure to associate the label to the input.
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
+  function handleChange(e) {
+    const userInput = e.target.value
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     const usernameInput = userInput.current.value
