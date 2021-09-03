@@ -5,7 +5,7 @@ import * as React from 'react'
 import {useState} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
-  const [error, setError] = useState(null)
+  const [username, setUsername] = useState('')
   // 🐨 add a submit event handler here (`handleSubmit`).
   // 💰 Make sure to accept the `event` as an argument and call
   // `event.preventDefault()` to prevent the default behavior of form submit
@@ -23,13 +23,8 @@ function UsernameForm({onSubmitUsername}) {
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
   function handleChange(e) {
-    const usernameInput = e.target.value
-    const valid = usernameInput === usernameInput.toLowerCase()
-    if (!valid) {
-      setError('Username must be lower case')
-    } else {
-      setError(null)
-    }
+    const usernameInput = e.target.value.toLowerCase()
+    setUsername(usernameInput)
   }
 
   function handleSubmit(e) {
@@ -39,15 +34,17 @@ function UsernameForm({onSubmitUsername}) {
   }
   return (
     <div>
-      <span style={{color: 'red'}}>{error}</span>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="usernameInput">Username:</label>
-          <input type="text" id="usernameInput" onChange={handleChange} />
+          <input
+            type="text"
+            id="usernameInput"
+            onChange={handleChange}
+            value={username}
+          />
         </div>
-        <button type="submit" disabled={error}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
