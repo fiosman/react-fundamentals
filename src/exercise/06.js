@@ -2,10 +2,9 @@
 // http://localhost:3000/isolated/exercise/06.js
 
 import * as React from 'react'
-import {useRef, useState} from 'react'
+import {useState} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
-  const userInput = useRef('')
   const [error, setError] = useState(null)
   // 🐨 add a submit event handler here (`handleSubmit`).
   // 💰 Make sure to accept the `event` as an argument and call
@@ -35,21 +34,16 @@ function UsernameForm({onSubmitUsername}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const usernameInput = userInput.current.value
+    const usernameInput = e.target.elements.usernameInput.value
     onSubmitUsername(usernameInput)
   }
   return (
     <div>
-      {error}
+      <span style={{color: 'red'}}>{error}</span>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="usernameInput">Username:</label>
-          <input
-            type="text"
-            id="usernameInput"
-            ref={userInput}
-            onChange={handleChange}
-          />
+          <input type="text" id="usernameInput" onChange={handleChange} />
         </div>
         <button type="submit" disabled={error}>
           Submit
